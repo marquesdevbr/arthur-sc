@@ -1,0 +1,10 @@
+{
+  "description": "Apresenta a música e identidade de DJ Arthur SC, com prévias de Mega Funk, opções de compra e um formulário visual para encomendar faixas personalizadas.",
+  "robots": {
+    "index": false
+  },
+  "accessibility": {
+    "addBypassLinks": false,
+    "ignoreReducedMotion": false
+  }
+}
