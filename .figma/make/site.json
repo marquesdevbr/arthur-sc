@@ -1,5 +1,7 @@
 {
-  "description": "Apresenta a música e identidade de DJ Arthur SC, com prévias de Mega Funk, opções de compra e um formulário visual para encomendar faixas personalizadas.",
+  "title": "Arthur SC",
+  "language": "pt-BR",
+  "description": "Site oficial do DJ Arthur SC: prévias de Mega Funk e encomenda de megas personalizados pelo WhatsApp.",
   "robots": {
     "index": false
   },
