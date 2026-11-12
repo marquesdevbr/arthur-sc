@@ -110,7 +110,7 @@ h2 em { color: transparent; -webkit-text-stroke: 1px var(--purple-light); font-s
 .play-button { display: grid; place-items: center; width: 42px; height: 42px; border-radius: 50%; border: 1px solid var(--line); background: transparent; cursor: pointer; transition: background .2s, color .2s; }
 .play-button:hover { background: var(--white); color: #000; }
 .audio-wave { height: 22px; display: flex; align-items: center; gap: 3px; opacity: .35; }
-.audio-wave i { flex: 1; height: calc(2px + (var(--i) % 5) * 3px); background: var(--white); transform-origin: center; }
+.audio-wave i { flex: 1; height: calc(2px + var(--h) * 3px); background: var(--white); transform-origin: center; }
 .audio-wave.is-active i { background: var(--purple-light); animation: wave .65s ease-in-out infinite alternate; animation-delay: calc(var(--i) * -40ms); }
 .track-links { margin-top: 9px; padding-top: 12px; border-top: 1px solid var(--line); display: flex; justify-content: space-between; align-items: center; font: 11px 'Space Mono'; text-transform: uppercase; color: var(--muted); }
 .youtube-link { display: flex; align-items: center; gap: 8px; color: var(--white); }
