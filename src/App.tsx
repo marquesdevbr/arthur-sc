@@ -1,6 +1,5 @@
 import { useEffect, useState } from 'react'
-import type { CSSProperties } from 'react'
-import { ArrowIcon, ChatIcon, InstagramIcon, MailIcon, YoutubeIcon } from './components/Icons'
+import { ArrowIcon, ChatIcon, InstagramIcon, YoutubeIcon } from './components/Icons'
 import LogoMark from './components/LogoMark'
 import MegaCard from './components/MegaCard'
 import OrderForm from './components/OrderForm'
@@ -14,7 +13,6 @@ export default function App() {
   const { playingId, failedIds, toggle } = useAudioPlayer()
   const { about } = siteConfig
   const whatsappReady = isWhatsAppConfigured(siteConfig.whatsappNumber)
-  const contactCells = 2 + (siteConfig.email ? 1 : 0)
 
   useEffect(() => {
     if (!menuOpen) return
@@ -215,11 +213,6 @@ export default function App() {
               AS <em>PISTAS.</em>
             </h2>
             <p className="bio-placeholder">{about.bio ?? 'A história oficial de Arthur SC chega em breve.'}</p>
-            {about.quote && (
-              <blockquote>
-                “{about.quote.text}”<cite>— {about.quote.author}</cite>
-              </blockquote>
-            )}
           </div>
         </section>
       </main>
@@ -252,7 +245,7 @@ export default function App() {
             YouTube <YoutubeIcon />
           </a>
         </div>
-        <div className="social-row contact-row" style={{ '--cols': contactCells } as CSSProperties}>
+        <div className="social-row contact-row">
           <span>Contato</span>
           {whatsappReady ? (
             <a
@@ -265,11 +258,6 @@ export default function App() {
             </a>
           ) : (
             <span className="is-pending">WhatsApp em breve</span>
-          )}
-          {siteConfig.email && (
-            <a href={`mailto:${siteConfig.email}`}>
-              E-mail <MailIcon />
-            </a>
           )}
           <a href="#pedido">
             Fazer pedido <ArrowIcon />

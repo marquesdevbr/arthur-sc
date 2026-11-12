@@ -28,7 +28,6 @@ export type Mega = {
 type SiteConfig = {
   name: string
   whatsappNumber: string
-  email?: string
   social: { instagram: string; youtube: string }
   logo?: string
   portrait?: string
@@ -47,7 +46,6 @@ export const siteConfig: SiteConfig = {
   whatsappNumber: '',
 
   /** OPCIONAL: e-mail de contato. Se preenchido, aparece no rodapé. */
-  email: undefined,
 
   social: {
     instagram: 'https://www.instagram.com/dj.arthur_sc/',

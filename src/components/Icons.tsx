@@ -40,12 +40,3 @@ export function ChatIcon() {
     </svg>
   )
 }
-
-export function MailIcon() {
-  return (
-    <svg viewBox="0 0 24 24" aria-hidden="true">
-      <rect x="3" y="5.5" width="18" height="13" rx="2.5" />
-      <path d="m4 8 8 5.5L20 8" />
-    </svg>
-  )
-}
