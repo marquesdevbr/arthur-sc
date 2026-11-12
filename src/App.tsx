@@ -1,16 +1,20 @@
 import { useEffect, useState } from 'react'
-import { ArrowIcon, InstagramIcon, YoutubeIcon } from './components/Icons'
+import type { CSSProperties } from 'react'
+import { ArrowIcon, ChatIcon, InstagramIcon, MailIcon, YoutubeIcon } from './components/Icons'
 import LogoMark from './components/LogoMark'
 import MegaCard from './components/MegaCard'
 import OrderForm from './components/OrderForm'
 import { defaultPackId, formatPrice, megas, packs, siteConfig } from './config/site'
 import { useAudioPlayer } from './hooks/useAudioPlayer'
+import { buildWhatsAppUrl, contactMessage, isWhatsAppConfigured } from './lib/whatsapp'
 
 export default function App() {
   const [menuOpen, setMenuOpen] = useState(false)
   const [selectedPack, setSelectedPack] = useState(defaultPackId)
   const { playingId, failedIds, toggle } = useAudioPlayer()
   const { about } = siteConfig
+  const whatsappReady = isWhatsAppConfigured(siteConfig.whatsappNumber)
+  const contactCells = 2 + (siteConfig.email ? 1 : 0)
 
   useEffect(() => {
     if (!menuOpen) return
@@ -246,6 +250,29 @@ export default function App() {
             aria-label="YouTube do Arthur SC (abre em nova aba)"
           >
             YouTube <YoutubeIcon />
+          </a>
+        </div>
+        <div className="social-row contact-row" style={{ '--cols': contactCells } as CSSProperties}>
+          <span>Contato</span>
+          {whatsappReady ? (
+            <a
+              href={buildWhatsAppUrl(siteConfig.whatsappNumber, contactMessage)}
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Falar com o Arthur no WhatsApp (abre em nova aba)"
+            >
+              WhatsApp <ChatIcon />
+            </a>
+          ) : (
+            <span className="is-pending">WhatsApp em breve</span>
+          )}
+          {siteConfig.email && (
+            <a href={`mailto:${siteConfig.email}`}>
+              E-mail <MailIcon />
+            </a>
+          )}
+          <a href="#pedido">
+            Fazer pedido <ArrowIcon />
           </a>
         </div>
         <div className="footer-bottom">

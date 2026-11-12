@@ -32,5 +32,7 @@ export function buildOrderMessage({ pack, name, phone }: OrderData) {
   ].join('\n')
 }
 
+export const contactMessage = 'Olá, Arthur! Vim pelo site e gostaria de falar com você.'
+
 export const buildWhatsAppUrl = (number: string, message: string) =>
   `https://wa.me/${number}?text=${encodeURIComponent(message)}`

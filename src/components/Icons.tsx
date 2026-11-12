@@ -32,3 +32,20 @@ export function YoutubeIcon() {
     </svg>
   )
 }
+
+export function ChatIcon() {
+  return (
+    <svg viewBox="0 0 24 24" aria-hidden="true">
+      <path d="M4 20l1.3-4A8 8 0 1 1 8 18.7L4 20Z" />
+    </svg>
+  )
+}
+
+export function MailIcon() {
+  return (
+    <svg viewBox="0 0 24 24" aria-hidden="true">
+      <rect x="3" y="5.5" width="18" height="13" rx="2.5" />
+      <path d="m4 8 8 5.5L20 8" />
+    </svg>
+  )
+}

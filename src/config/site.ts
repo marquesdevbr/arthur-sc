@@ -28,6 +28,7 @@ export type Mega = {
 type SiteConfig = {
   name: string
   whatsappNumber: string
+  email?: string
   social: { instagram: string; youtube: string }
   logo?: string
   portrait?: string
@@ -43,7 +44,10 @@ export const siteConfig: SiteConfig = {
    * Enquanto estiver vazio (ou inválido), o formulário de pedido fica
    * bloqueado e exibe "em breve" para o visitante.
    */
-  whatsappNumber: '',
+  whatsappNumber: '554999033142',
+
+  /** OPCIONAL: e-mail de contato. Se preenchido, aparece no rodapé. */
+  email: undefined,
 
   social: {
     // CONFIRMAR: este é o link da publicação enviada pelo cliente.

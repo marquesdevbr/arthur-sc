@@ -22,13 +22,13 @@ export default function OrderForm({ selectedPack, onPackChange }: Props) {
   const [phone, setPhone] = useState('')
   const [errors, setErrors] = useState<Errors>({})
   const [whatsappUrl, setWhatsappUrl] = useState<string | null>(null)
+  const [preview, setPreview] = useState<string | null>(null)
   const nameRef = useRef<HTMLInputElement>(null)
   const phoneRef = useRef<HTMLInputElement>(null)
   const ready = isWhatsAppConfigured(siteConfig.whatsappNumber)
 
   const handleSubmit = (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault()
-    if (!ready) return
 
     const next: Errors = {}
     if (name.trim().length < 2) next.name = 'Informe seu nome.'
@@ -36,15 +36,24 @@ export default function OrderForm({ selectedPack, onPackChange }: Props) {
     setErrors(next)
     if (next.name || next.phone) {
       setWhatsappUrl(null)
+      setPreview(null)
       ;(next.name ? nameRef : phoneRef).current?.focus()
       return
     }
 
     const pack = packs.find((item) => item.id === selectedPack)
     if (!pack) return
-    const url = buildWhatsAppUrl(siteConfig.whatsappNumber, buildOrderMessage({ pack, name, phone }))
+    const message = buildOrderMessage({ pack, name, phone })
+    setPreview(message)
+    if (!ready) return
+    const url = buildWhatsAppUrl(siteConfig.whatsappNumber, message)
     setWhatsappUrl(url)
     window.open(url, '_blank', 'noopener,noreferrer')
+  }
+
+  const resetResult = () => {
+    setPreview(null)
+    setWhatsappUrl(null)
   }
 
   return (
@@ -59,7 +68,10 @@ export default function OrderForm({ selectedPack, onPackChange }: Props) {
                 name="pack"
                 value={pack.id}
                 checked={selectedPack === pack.id}
-                onChange={() => onPackChange(pack.id)}
+                onChange={() => {
+                  onPackChange(pack.id)
+                  resetResult()
+                }}
               />
               <span>
                 {pack.amount} {pack.label}
@@ -80,10 +92,12 @@ export default function OrderForm({ selectedPack, onPackChange }: Props) {
           placeholder="Como podemos te chamar?"
           value={name}
           maxLength={80}
-          disabled={!ready}
           aria-invalid={Boolean(errors.name)}
           aria-describedby={errors.name ? 'erro-nome' : undefined}
-          onChange={(event) => setName(event.target.value)}
+          onChange={(event) => {
+            setName(event.target.value)
+            resetResult()
+          }}
         />
         {errors.name && (
           <small id="erro-nome" className="field-error" role="alert">
@@ -102,10 +116,12 @@ export default function OrderForm({ selectedPack, onPackChange }: Props) {
           autoComplete="tel-national"
           placeholder="(00) 00000-0000"
           value={phone}
-          disabled={!ready}
           aria-invalid={Boolean(errors.phone)}
           aria-describedby={errors.phone ? 'erro-whatsapp' : undefined}
-          onChange={(event) => setPhone(formatPhone(event.target.value))}
+          onChange={(event) => {
+            setPhone(formatPhone(event.target.value))
+            resetResult()
+          }}
         />
         {errors.phone && (
           <small id="erro-whatsapp" className="field-error" role="alert">
@@ -114,22 +130,30 @@ export default function OrderForm({ selectedPack, onPackChange }: Props) {
         )}
       </label>
 
+      {preview && (
+        <div className="message-preview">
+          <span>Prévia da mensagem</span>
+          <pre>{preview}</pre>
+          {!ready && <small>O envio direto para o WhatsApp do Arthur será liberado em breve.</small>}
+        </div>
+      )}
+
       <div className="form-footer">
         <span role="status">
-          {!ready
-            ? 'Encomendas pelo WhatsApp disponíveis em breve.'
-            : whatsappUrl
-              ? (
-                  <>
-                    Mensagem pronta. Não abriu?{' '}
-                    <a href={whatsappUrl} target="_blank" rel="noopener noreferrer">
-                      Abrir WhatsApp
-                    </a>
-                  </>
-                )
-              : 'Você revisa a mensagem e envia pelo seu próprio WhatsApp.'}
+          {whatsappUrl ? (
+            <>
+              Mensagem pronta. Não abriu?{' '}
+              <a href={whatsappUrl} target="_blank" rel="noopener noreferrer">
+                Abrir WhatsApp
+              </a>
+            </>
+          ) : ready ? (
+            'Você revisa a mensagem e envia pelo seu próprio WhatsApp.'
+          ) : (
+            'Preencha para ver a prévia da mensagem do pedido.'
+          )}
         </span>
-        <button type="submit" disabled={!ready}>
+        <button type="submit">
           Preparar mensagem <ArrowIcon />
         </button>
       </div>

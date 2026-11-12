@@ -16,7 +16,8 @@ Tudo abaixo está preparado no código. É só enviar o material e substituir no
 | 10 | **Instagram**: confirmar se o link é o da publicação enviada ou o perfil (`https://www.instagram.com/dj.arthur_sc/`) | `social.instagram` em `src/config/site.ts`. |
 | 11 | Spotify / SoundCloud, **se existirem** | Hoje não aparecem. Só adicionar quando houver endereço oficial. |
 | 12 | **Confirmar os textos** já no site: "Produtor independente", "Santa Catarina · BR", "O peso do Mega Funk tem nome", "Grave sem limite", "Do Sul para as pistas", "Independente por essência" | `src/App.tsx` |
-| 13 | **Confirmar preços e regras** dos pacotes (R$ 5 / R$ 40 / R$ 70) | `packs` em `src/config/site.ts`. |
+| 13 | **E-mail de contato** (opcional) | `email` em `src/config/site.ts`. Se preenchido, aparece no rodapé. |
+| 14 | **Confirmar preços e regras** dos pacotes (R$ 5 / R$ 40 / R$ 70) | `packs` em `src/config/site.ts`. |
 
 ## Antes da publicação definitiva
 
