@@ -13,7 +13,6 @@ Tudo abaixo está preparado no código. É só enviar o material e substituir no
 | 7 | **6 capas** (quadradas) | Arquivos em `public/covers/` e `megas[].cover` (ex.: `/covers/mega-01.jpg`). |
 | 8 | **6 áudios de prévia** (mp3) | Arquivos em `public/audio/` e `megas[].audio` (ex.: `/audio/mega-01.mp3`). |
 | 9 | **6 links do YouTube** (um por mega) | `megas[].youtube` em `src/config/site.ts`. |
-| 10 | **Instagram**: confirmar se o link é o da publicação enviada ou o perfil (`https://www.instagram.com/dj.arthur_sc/`) | `social.instagram` em `src/config/site.ts`. |
 | 11 | Spotify / SoundCloud, **se existirem** | Hoje não aparecem. Só adicionar quando houver endereço oficial. |
 | 12 | **Confirmar os textos** já no site: "Produtor independente", "Santa Catarina · BR", "O peso do Mega Funk tem nome", "Grave sem limite", "Do Sul para as pistas", "Independente por essência" | `src/App.tsx` |
 | 13 | **E-mail de contato** (opcional) | `email` em `src/config/site.ts`. Se preenchido, aparece no rodapé. |

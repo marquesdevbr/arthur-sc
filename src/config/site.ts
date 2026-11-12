@@ -44,15 +44,13 @@ export const siteConfig: SiteConfig = {
    * Enquanto estiver vazio (ou inválido), o formulário de pedido fica
    * bloqueado e exibe "em breve" para o visitante.
    */
-  whatsappNumber: '554999033142',
+  whatsappNumber: '',
 
   /** OPCIONAL: e-mail de contato. Se preenchido, aparece no rodapé. */
   email: undefined,
 
   social: {
-    // CONFIRMAR: este é o link da publicação enviada pelo cliente.
-    // O perfil provável é https://www.instagram.com/dj.arthur_sc/
-    instagram: 'https://www.instagram.com/p/DY25Mh2xkR1/',
+    instagram: 'https://www.instagram.com/dj.arthur_sc/',
     youtube: 'https://www.youtube.com/@Dj.Arthur_Sc',
   },
 
