@@ -78,10 +78,10 @@ export const defaultPackId = (packs.find((pack) => pack.featured) ?? packs[0]).i
 /** Os 6 megas de demonstração exibidos no site. Preencha title/cover/audio/youtube conforme o Arthur enviar. */
 /** Os 4 megas de demonstração exibidos no site. Para incluir áudio de prévia, preencha `audio` (ex.: '/audio/mega-01.mp3'). */
 export const megas: Mega[] = [
-  { id: '01', title: 'Rua do Ouro', youtube: 'https://youtu.be/W4NrobPf3Hc' },
-  { id: '02', title: 'Água Rosa', youtube: 'https://youtu.be/tJui30AD9qA' },
-  { id: '03', title: 'Fumaça do Ice', youtube: 'https://youtu.be/h0DwxMHddus' },
-  { id: '04', title: 'Geme Baixo', youtube: 'https://youtu.be/D9bLX5Ej_WA' },
+  { id: '01', title: 'Rua do Ouro', audio: '/audio/mega-01.mp3', youtube: 'https://youtu.be/W4NrobPf3Hc' },
+  { id: '02', title: 'Água Rosa', audio: '/audio/mega-02.mp3', youtube: 'https://youtu.be/tJui30AD9qA' },
+  { id: '03', title: 'Fumaça do Ice', audio: '/audio/mega-03.mp3', youtube: 'https://youtu.be/h0DwxMHddus' },
+  { id: '04', title: 'Geme Baixo', audio: '/audio/mega-04.mp3', youtube: 'https://youtu.be/D9bLX5Ej_WA' },
 ]
 
 export const formatPrice = (value: number) => `R$ ${value}`

@@ -8,7 +8,6 @@ O passo a passo de cada item está em `COMO-ATUALIZAR.md`.
 | **Logo** (SVG ou PNG com fundo transparente) | `public/` + `logo` em `src/config/site.ts`. Serve também de base para o favicon e a imagem de compartilhamento. |
 | **Foto oficial** | `public/` + `portrait` em `src/config/site.ts` |
 | **Texto de apresentação** (aba Sobre) | `about.bio` em `src/config/site.ts` |
-| **30 segundos de cada mega** (4 áudios) | `public/audio/mega-01.mp3` … `mega-04.mp3` + `audio` de cada mega em `src/config/site.ts` |
 | **Confirmação dos textos** "Produtor independente", "Santa Catarina · BR", "Grave sem limite", "Do Sul para as pistas" | `src/App.tsx`, se ele quiser trocar algo |
 
 ## Para preencher por nossa conta
@@ -27,6 +26,7 @@ O passo a passo de cada item está em `COMO-ATUALIZAR.md`.
 - [ ] Autorizar o push.
 
 ## Já feito
+Prévias de 30 segundos dos 4 megas (`public/audio/mega-01.mp3` a `mega-04.mp3`), cortadas das faixas completas, com volume uniforme e fade no final.
 Os 4 megas (Rua do Ouro, Água Rosa, Fumaça do Ice e Geme Baixo) já estão no site com título e link do YouTube.
 
 ## Decididos (fora do site)
