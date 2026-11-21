@@ -25,17 +25,17 @@ Segundo parágrafo.`,
 },
 ```
 
-## 5. Áudios de prévia (30 segundos de cada mega)
+## 5. Áudios de prévia (30 segundos de cada um dos 4 megas)
 1. Se o Arthur mandar só o mega inteiro, corte 30 s com fade final (troque `-ss` pelo ponto onde o mega "bate"):
    ```
    ffmpeg -i mega.mp4 -ss 00:00:30 -t 30 -vn -af "afade=t=out:st=27:d=3" -b:a 128k mega-01.mp3
    ```
    Sem ffmpeg: no Audacity, recorte 30 s, aplique Efeito → Fade out nos últimos 3 s e exporte em MP3 a 128 kbps.
-2. Salve em `public/audio/` como `mega-01.mp3` … `mega-06.mp3` (cerca de 500 KB cada).
+2. Salve em `public/audio/` como `mega-01.mp3` … `mega-04.mp3` (cerca de 500 KB cada).
 3. Em `site.ts`, em cada mega: `audio: '/audio/mega-01.mp3'`.
 
-## 6. Títulos e links do YouTube
-Em `site.ts`, na lista `megas`:
+## 6. Títulos e links do YouTube (já preenchidos)
+Os 4 megas já estão em `site.ts`, na lista `megas`. Para trocar um, ou adicionar outro:
 
 ```ts
 { id: '01', title: 'Nome do mega', audio: '/audio/mega-01.mp3', youtube: 'https://www.youtube.com/watch?v=...' },
