@@ -12,7 +12,7 @@ type Props = {
 
 export default function MegaCard({ mega, index, isPlaying, isFailed, onToggle }: Props) {
   const label = mega.title ?? `Mega ${mega.id}`
-  const canPlay = Boolean(mega.audio) && !isFailed
+  const canPlay = Boolean(mega.audio)
   const status = isFailed
     ? 'Áudio indisponível'
     : !mega.audio
