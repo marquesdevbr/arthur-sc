@@ -12,6 +12,10 @@ export default function App() {
   const [selectedPack, setSelectedPack] = useState(defaultPackId)
   const { playingId, failedIds, toggle } = useAudioPlayer()
   const { about } = siteConfig
+  const bioParagraphs = (about.bio ?? '')
+    .split(/\n\s*\n/)
+    .map((text) => text.trim())
+    .filter(Boolean)
   const whatsappReady = isWhatsAppConfigured(siteConfig.whatsappNumber)
 
   useEffect(() => {
@@ -212,7 +216,13 @@ export default function App() {
               <br />
               AS <em>PISTAS.</em>
             </h2>
-            <p className="bio-placeholder">{about.bio ?? 'A história oficial de Arthur SC chega em breve.'}</p>
+            <div className="bio">
+              {bioParagraphs.length > 0 ? (
+                bioParagraphs.map((text, i) => <p key={i}>{text}</p>)
+              ) : (
+                <p>A história oficial de Arthur SC chega em breve.</p>
+              )}
+            </div>
           </div>
         </section>
       </main>

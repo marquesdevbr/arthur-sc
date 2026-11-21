@@ -1,5 +1,7 @@
 # Arthur SC — Pendências para fechar o site
 
+O passo a passo de cada item está em `COMO-ATUALIZAR.md`.
+
 ## Aguardando o Arthur
 | Item | Onde entra |
 |------|------------|
